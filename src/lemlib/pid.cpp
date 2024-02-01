@@ -18,13 +18,16 @@ PID::PID(float kP, float kI, float kD, float windupRange, bool signFlipReset)
       windupRange(windupRange),
       signFlipReset(signFlipReset) {}
 
+
+
+
 /**
  * @brief Update the PID
  *
  * @param error target minus position - AKA error
  * @return float output
  */
-float PID::update(const float error) {
+    float PID::update(const float error) {
     // calculate integral
     integral += error;
     if (sgn(error) != sgn((prevError))) integral = 0;
@@ -42,7 +45,7 @@ float PID::update(const float error) {
  * @brief reset integral and error
  *
  */
-void PID::reset() {
+    void PID::reset() {
     integral = 0;
     prevError = 0;
 }
